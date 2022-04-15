@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Meme Genrator</title>
+</head>
+
+<body onload='onInit()'>
+    <header>
+        <div class="logo"><img class='logo-img' src="./imgs/LOGO.png" alt=""></div>
+    </header>
+
+    <section class='gallery-container'>
+        <h2>Gallery</h2>
+        <input list="search-datalist" name="search" type="txt" class="input-search" oninput="onSerchImg()"
+            placeholder="Type an image category...">
+        <datalist id="search-datalist">
+            <option value="happy">
+            <option value="pets">
+            <option value="politics">
+            <option value="famous">
+            <option value="dog">
+            <option value="baby">
+            <option value="angry">
+            <option value="funny">
+            <option value="politics">
+            <option value="obama">
+            <option value="putin">
+            <option value="toy">
+            <option value="movie">
+            <option value="man">
+        </datalist>
+        <p class='para'>Choose one image from the gallery</p>
+        <div class="gallery grid">
+        </div>
+    </section>
+
+
+    <section class='main-container'>
+        <h2>Meme Generator</h2>
+        <p class='edit-meme-para'>Edit your meme</p>
+        <div class="meme flex flex-row-rev">
+            <div class="editor">
+                <form onsubmit="onSubmit(event)" class='editor-form'>
+                    <div class='edit-txt'>Enter Text:</div>
+                    <div class='input-txt-edit'>
+                        <input class='input-txt' oninput='onSetLineText(this)' onkeyup="handleKey(event)"
+                            placeholder='Write Something' type="text" name="txt" size="30">
+                    </div>
+                    <div class='directions-btns'>
+                        <button onclick='onMoveLineY(10)' class='btn btn-down'>🡻</button>
+                        <button onclick='onMoveLineY(-10)' class='btn btn-up'>🡹</button>
+                        <button onclick='onMoveLineX(-10)' class='btn btn-move-left'>🡸</button>
+                        <button onclick='onMoveLineX(10)' class='btn btn-move-right'>🡺</button>
+                        <button onclick='onSwitchLine()' class='btn btn-switch'>🡹🡻</button>
+                    </div>
+                    <div class='work-space'>
+                        <div>
+                            <button onclick='onAddLine()' class='btn btn-plus'>➕</button>
+                            <button onclick='clearCanvas()' class='btn btn-delete'>🗑</button>
+                            <button onclick='onSetSizeUp()' class='btn btn-bigger'>🗚</button>
+                            <button onclick='onSetSizeDown()' class='btn btn-lower'>🗛</button>
+                        </div>
+                        <div>
+                            <button onclick='textAlign("left")' class='btn btn-left align'>≔</button>
+                            <button onclick='textAlign("center")' class='btn btn-center align'>≑</button>
+                            <button onclick='textAlign("right")' class='btn btn-right align'>≕</button>
+                            <button class="btn btn-upload" onclick="uploadImg()">📤</button>
+                        </div>
+                    </div>
+                    <a class='download' href="#" onclick="downloadCanvas(this)" download="shani.jpg">Download</a>
+                    <div class="user-msg"></div>
+                    <div class="share-container"></div>
+                    <select class='select' onchange='onSetFont(this)' name="Font" id="">
+                        <option value="none">Font</option>
+                        <option value="Impact">Impact</option>
+                        <option value="Arial">Arial</option>
+                        <option value="Georgia">Georgia</option>
+                    </select>
+                    <input class='input-color' onchange='onSetColor(this)' type="color" name='color'>
+                </form>
+            </div>
+            <div class="canvas-container">
+                <canvas id="my-canvas" height="500" width="500">
+                </canvas>
+            </div>
+        </div>
+
+    </section>
+    <footer>
+        <div class="logo2"><img class='logo-img' src="./imgs/LOGO.png" alt=""></div>
+        <div class='name-privet'>Shani Eini</div>
+    </footer>
+
+    <script src="./js/util.js"></script>
+    <script src="./js/gallery.service.js"></script>
+    <script src="./js/gallery.Controller.js"></script>
+    <script src="./js/meme.service.js"></script>
+    <script src="./js/meme.controller.js"></script>
+</body>
+
+</html>

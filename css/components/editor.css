@@ -1,0 +1,64 @@
+.editor {
+    background-color: rgb(219, 177, 40);
+    border: 2px solid black;
+    grid-row: 1/2;
+    flex: 1;
+}
+
+.editor-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.main-container {
+    display: none;
+    background-color: rgb(187, 184, 184);
+    grid-template-columns: 1fr 1fr;
+}
+
+#my-canvas {
+    border: 2px solid black;
+    grid-column: 1/2;
+    height: 100%;
+    width: 100%;
+}
+
+.work-space {
+    background-color: orangered;
+    border-radius: 10px;
+    padding: 10px;
+    width: 50%;
+}
+
+.work-space div:first-child {
+    margin-bottom: 10px;
+}
+
+.edit-meme-para {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 100%;
+}
+
+.edit-txt {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 100%;
+}
+
+/* .input-txt-edit {
+    width: 100%;
+} */
+
+.canvas-container {
+    grid-row: 1/2;
+}
+
+.user-msg {
+    display: none;
+}
+
+.share-container {
+    display: none;
+}

@@ -1,0 +1,32 @@
+@media(max-width:500px) {
+    .logo-img {
+        margin: auto;
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+    }
+
+    header {
+        height: 100%;
+        width: 100%;
+    }
+
+    .logo {
+        height: 4rem;
+        width: 15rem;
+    }
+
+    .input-search {
+        width: 10rem;
+        height: 2rem;
+    }
+
+    .meme {
+        flex-direction: column-reverse;
+    }
+
+    /* .main-container {
+        padding: 0 5px;
+    } */
+
+}

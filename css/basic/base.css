@@ -1,0 +1,11 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    background-color: rgb(187, 184, 184);
+}
