@@ -11,7 +11,7 @@ function onOpenCanvas() {
     gElCanvas = document.querySelector('#my-canvas');
     gCtx = gElCanvas.getContext('2d');
     // resizeCanvas()
-    // addListeners()
+    addListeners()
     renderCanvas()
 }
 
@@ -136,77 +136,70 @@ function onSetFont(elFont) {
 // ************* DRAG **************
 
 
-// function addListeners() {
-//     addMouseListeners()
-//     addTouchListeners()
-//     window.addEventListener('resize', () => {
-//         // resizeCanvas()
-//         renderCanvas()
-//     })
-// }
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+    window.addEventListener('resize', () => {
+        renderCanvas()
+    })
+}
 
-// function addMouseListeners() {
-//     gElCanvas.addEventListener('mousemove', onMove)
-//     gElCanvas.addEventListener('mousedown', onDown)
-//     gElCanvas.addEventListener('mouseup', onUp)
-// }
+function addMouseListeners() {
+    gElCanvas.addEventListener('mousemove', onMove)
+    gElCanvas.addEventListener('mousedown', onDown)
+    gElCanvas.addEventListener('mouseup', onUp)
+}
 
-// function addTouchListeners() {
-//     gElCanvas.addEventListener('touchmove', onMove)
-//     gElCanvas.addEventListener('touchstart', onDown)
-//     gElCanvas.addEventListener('touchend', onUp)
-// }
+function addTouchListeners() {
+    gElCanvas.addEventListener('touchmove', onMove)
+    gElCanvas.addEventListener('touchstart', onDown)
+    gElCanvas.addEventListener('touchend', onUp)
+}
 
-// function onDown(ev) {
-//     var meme = getMeme();
-//     const pos = getEvPos(ev);
-//     if (!isTxtsClicked(pos)) return
-//     var currTxtLine = getLineOftxt(clickedPos);
-//     setMemeDrag(true)
-//     meme.lines[currLine].pos = pos
-//     document.body.style.cursor = 'grabbing'
-// }
+function onDown(ev) {
+    var meme = getMeme();
+    var currLine = meme.selectedLineIdx
+    const pos = getEvPos(ev);
+    if (!isMemeTxtClicked(pos)) return
+    setMemeDrag(true)
+    meme.lines[currLine].pos = pos
+    document.body.style.cursor = 'grabbing'
+}
 
-// function onMove(ev) {
-//     var meme = getMeme();
-//     var currLine = meme.selectedLineIdx
-//     if (!meme.lines[currLine].isDrag) return
-//     const pos = getEvPos(ev)
-//     const dx = pos.x - meme.lines[currLine].pos.x
-//     const dy = pos.y - meme.lines[currLine].pos.y
-//     moveMeme(dx, dy)
-//     meme.lines[currLine].pos = pos
-//     renderCanvas()
-// }
+function onMove(ev) {
+    var meme = getMeme();
+    var currLine = meme.selectedLineIdx
+    if (!meme.lines[currLine].isDrag) return
+    const pos = getEvPos(ev)
+    const dx = pos.X - meme.lines[currLine].pos.X
+    const dy = pos.Y - meme.lines[currLine].pos.Y
+    moveMeme(dx, dy)
+    meme.lines[currLine].pos = pos
+    renderCanvas()
+}
 
-// function onUp() {
-//     var meme = getMeme();
-//     var currLine = meme.selectedLineIdx
-//     meme.lines[currLine].isDrag = false
-//     document.body.style.cursor = 'grab'
-// }
+function onUp() {
+    var meme = getMeme();
+    var currLine = meme.selectedLineIdx
+    meme.lines[currLine].isDrag = false
+    document.body.style.cursor = 'grab'
+}
 
-// function getEvPos(ev) {
-//     var pos = {
-//         x: ev.offsetX,
-//         y: ev.offsetY
-//     }
-//     if (gTouchEvs.includes(ev.type)) {
-//         ev.preventDefault()
-//         ev = ev.changedTouches[0]
-//         pos = {
-//             x: ev.pageX - ev.target.offsetLeft,
-//             y: ev.pageY - ev.target.offsetTop
-//         }
-//     }
-//     return pos
-// }
-
-// function resizeCanvas() {
-//     const elContainer = document.querySelector('.canvas-container')
-//     gElCanvas.width = elContainer.offsetWidth
-//     gElCanvas.height = elContainer.offsetHeight
-// }
+function getEvPos(ev) {
+    var pos = {
+        X: ev.offsetX,
+        Y: ev.offsetY
+    }
+    if (gTouchEvs.includes(ev.type)) {
+        ev.preventDefault()
+        ev = ev.changedTouches[0]
+        pos = {
+            X: ev.pageX - ev.target.offsetLeft,
+            Y: ev.pageY - ev.target.offsetTop
+        }
+    }
+    return pos
+}
 
 // ********** MOVE **********
 

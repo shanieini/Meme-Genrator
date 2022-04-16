@@ -84,82 +84,27 @@ function setFont(elFont) {
 
 
 // ************** DRAG ****************
-// function moveMeme(dx, dy) {
-//     var meme = getMeme()
-//     var currLine = meme.selectedLineIdx
-//     meme.lines[currLine].pos.X = dx
-//     meme.lines[currLine].pos.Y = dy
-// }
+function moveMeme(dx, dy) {
+    var meme = getMeme()
+    var currLine = meme.selectedLineIdx
+    meme.lines[currLine].pos.X += dx
+    meme.lines[currLine].pos.Y += dy
+}
 
-// function isTxtsClicked(clickedPos) {
-//     //var meme = getMeme()
-//     var currTxtLine = getLineOftxt(clickedPos);
-//     if (!currTxtLine) return false;
-//     // const { X: x, Y: y } = meme.lines[currTxtLine].pos;
-//     //////  TODO: add bottom line to getLineOftxt funtion /////////////////////
-//     // const distance = Math.sqrt((x - clickedPos.x) ** 2 + (y - clickedPos.y) ** 2)
-//     // console.log('distance: ', distance);
-//     // return distance <= meme.lines[currTxtLine].size
-//     return true;
-// }
+function isMemeTxtClicked(clickedPos) {
+    var meme = getMeme()
+    var currLine = meme.selectedLineIdx
+    const { X, Y } = meme.lines[currLine].pos
+    // console.log(pos)
+    const distance = Math.sqrt((X - clickedPos.X) ** 2 + (Y - clickedPos.Y) ** 2)
+    return distance <= meme.lines[currLine].size
+}
 
-// function getLineOftxt(clickedPos) {
-//     var meme = getMeme()
-//     var currIdx;
-//     meme.lines.forEach((line, idx) => {
-//         const { X, Y } = line.pos;
-//         if (
-//             (X - 100 < clickedPos.x && clickedPos.x < X + 100)
-//             && (Y - 100 < clickedPos.y && clickedPos.y < Y + 100)
-//         ) {
-//             currIdx = idx;
-//             return;
-//         }
-//     });
-//     return currIdx;
-// }
-
-// function setMemeDrag(isDrag) {
-//     var meme = getMeme()
-//     var currLine = meme.selectedLineIdx
-//     meme.lines[currLine].isDrag = isDrag
-// }
-
-// function isTxtsClicked(clickedPos) {
-//     //var meme = getMeme()
-//     var currTxtLine = getLineOftxt(clickedPos);
-//     if (!currTxtLine) return false;
-//     // const { X: x, Y: y } = meme.lines[currTxtLine].pos;
-//     //////  TODO: add bottom line to getLineOftxt funtion /////////////////////
-//     // const distance = Math.sqrt((x - clickedPos.x) ** 2 + (y - clickedPos.y) ** 2)
-//     // console.log('distance: ', distance);
-//     // return distance <= meme.lines[currTxtLine].size
-//     return true;
-// }
-
-// function getLineOftxt(clickedPos) {
-//     var meme = getMeme()
-//     var currIdx;
-//     meme.lines.forEach((line, idx) => {
-//         const { X, Y } = line.pos;
-//         if (
-//             (X - 100 < clickedPos.x && clickedPos.x < X + 100)
-//             && (Y - 100 < clickedPos.y && clickedPos.y < Y + 100)
-//         ) {
-//             currIdx = idx;
-//             return;
-//         }
-//     });
-//     return currIdx;
-// }
-
-// function setMemeDrag(isDrag) {
-//     var meme = getMeme()
-//     var currLine = meme.selectedLineIdx
-//     meme.lines[currLine].isDrag = isDrag
-// }
-
-
+function setMemeDrag(isDrag) {
+    var meme = getMeme()
+    var currLine = meme.selectedLineIdx
+    meme.lines[currLine].isDrag = isDrag
+}
 
 // ********* align *********
 function textAlign(alignVal) {
