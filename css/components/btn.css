@@ -19,3 +19,8 @@
 a.download {
     font-size: 16px;
 }
+
+.btn-upload {
+    margin-bottom: 10px;
+    font-size: 22px;
+}

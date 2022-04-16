@@ -10,7 +10,7 @@ const gTouchEvs = ['touchstart', 'touchmove', 'touchend']
 function onOpenCanvas() {
     gElCanvas = document.querySelector('#my-canvas');
     gCtx = gElCanvas.getContext('2d');
-    // resizeCanvas()
+    resizeCanvas()
     addListeners()
     renderCanvas()
 }
@@ -201,6 +201,12 @@ function getEvPos(ev) {
     return pos
 }
 
+function resizeCanvas() {
+    var elContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = elContainer.offsetWidth
+    gElCanvas.height = elContainer.offsetHeight
+}
+
 // ********** MOVE **********
 
 function onMoveLineX(directionVal) {
@@ -217,3 +223,4 @@ function onAddLine() {
     addLine()
     renderCanvas()
 }
+

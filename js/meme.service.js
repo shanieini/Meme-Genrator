@@ -87,8 +87,8 @@ function setFont(elFont) {
 function moveMeme(dx, dy) {
     var meme = getMeme()
     var currLine = meme.selectedLineIdx
-    meme.lines[currLine].pos.X += dx
-    meme.lines[currLine].pos.Y += dy
+    meme.lines[currLine].pos.X = dx
+    meme.lines[currLine].pos.Y = dy
 }
 
 function isMemeTxtClicked(clickedPos) {
@@ -215,3 +215,4 @@ function addLine() {
         pos: { X: 100, Y: 200 }
     })
 }
+
