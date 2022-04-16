@@ -24,3 +24,12 @@ a.download {
     margin-bottom: 10px;
     font-size: 22px;
 }
+
+.download {
+    text-decoration: none;
+    color: black;
+}
+
+.download:hover {
+    color: orangered;
+}
